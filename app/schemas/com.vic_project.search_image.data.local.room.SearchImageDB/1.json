@@ -1,0 +1,49 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "678c383979e2f166c52c9327810c26fc",
+    "entities": [
+      {
+        "tableName": "image_db",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`image_name` TEXT NOT NULL, `image_url` TEXT NOT NULL, `image_description` TEXT NOT NULL, `network_id` INTEGER NOT NULL, PRIMARY KEY(`network_id`))",
+        "fields": [
+          {
+            "fieldPath": "photographer",
+            "columnName": "image_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "image_url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "image_description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageId",
+            "columnName": "network_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "network_id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '678c383979e2f166c52c9327810c26fc')"
+    ]
+  }
+}
