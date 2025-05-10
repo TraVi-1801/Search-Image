@@ -86,7 +86,8 @@ fun ImageLoad(
         modifier = modifier,
         loading = {
             Box(
-                modifier = Modifier.matchParentSize(),
+                modifier = modifier
+                    .aspectRatio(1f),
                 contentAlignment = Alignment.Center
             ) {
                 ImageShimmer(modifier = Modifier.matchParentSize())
@@ -115,7 +116,8 @@ fun ImageLoad(
                 painter = painterResource(id = R.drawable.image_placeholder),
                 contentDescription = contentDescription,
                 contentScale = contentScale,
-                modifier = Modifier.matchParentSize()
+                modifier = modifier
+                    .aspectRatio(1f)
             )
         },
         success = { imageState ->
